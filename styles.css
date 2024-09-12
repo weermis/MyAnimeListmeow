@@ -1,0 +1,160 @@
+body {
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+    background-color: #222; /* Header background color */
+}
+
+h1 {
+    margin: 0; /* No margin for header title */
+    font-size: 2em; /* Header title size */
+}
+
+input[type="text"],
+select {
+    padding: 10px; /* Padding for input and select */
+    margin-left: 15px; /* Space between elements */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #f44336; /* Border color */
+    background-color: #333; /* Background color */
+    color: white; /* Text color */
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none; /* Remove outline on focus */
+    border-color: #f44336; /* Change border color on focus */
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four items per row */
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding around grid */
+}
+
+.anime-card {
+    background-color: #1611118c; /* Card background color */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.2s; /* Smooth hover transition */
+    position: relative; /* Position for hover effect */
+    border: 2px solid #f44336; /* Border for card */
+}
+
+.anime-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.anime-card img {
+    width: 100%; /* Full width */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Ensures the image maintains aspect ratio and fills the container */
+}
+
+.anime-card .description {
+    background-color: #5e0f0f; /* Dark red background color under images */
+    padding: 10px; /* Padding for the description area */
+}
+
+.anime-card h3 {
+    margin: 10px; /* Margin for title */
+    font-size: 1.5em; /* Increased title size */
+    text-align: center; /* Center title */
+    font-family: 'Georgia', serif; /* Change to a nicer font */
+}
+
+.stats-button {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for button */
+    margin-left: 15px; /* Space between elements */
+    font-size: 1em; /* Button text size */
+    color: white; /* Button text color */
+    background-color: #f44336; /* Button background color */
+    border: 1px solid #f44336; /* Button border color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center text */
+}
+
+.stats-button:hover {
+    background-color: #d32f2f; /* Darker color on hover */
+    border-color: #d32f2f; /* Darker border on hover */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1000; /* High z-index */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    justify-content: center; /* Center modal content */
+    align-items: center; /* Center modal content vertically */
+}
+
+.modal-content {
+    background-color: #222; /* Modal background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside modal */
+}
+
+.close {
+    color: #aaa; /* Close button color */
+    float: right; /* Float close button to right */
+    font-size: 28px; /* Close button size */
+    font-weight: bold; /* Close button weight */
+}
+
+.close:hover,
+.close:focus {
+    color: white; /* Change color on hover/focus */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor */
+}
+
+video {
+    width: 100%; /* Full width video */
+    height: auto; /* Auto height */
+}
+
+.stats-overview {
+    margin: 20px; /* Margin around overview section */
+    padding: 20px; /* Padding inside overview section */
+    background-color: #333; /* Background color for overview */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.charts {
+    margin: 20px; /* Margin around charts section */
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space out charts evenly */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.chart-container {
+    background-color: #444; /* Background color for each chart */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding around chart */
+    margin: 10px; /* Margin around chart container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    flex: 1; /* Equal width for each chart */
+    max-width: 300px; /* Max width for chart container */
+}
+
+canvas {
+    margin: 10px 0; /* Margin around canvas elements */
+    width: 100%; /* Full width within the container */
+    height: auto; /* Auto height */
+}

@@ -1,0 +1,86 @@
+html, body {
+    height: 100%; /* Set height to 100% for sticky footer */
+}
+
+body {
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+    background-color: #222; /* Header background color */
+}
+
+.stats-button {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for button */
+    margin-left: 15px; /* Space between elements */
+    font-size: 1em; /* Button text size */
+    color: white; /* Button text color */
+    background-color: #f44336; /* Button background color */
+    border: 1px solid #f44336; /* Button border color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center text */
+}
+
+.stats-button:hover {
+    background-color: #d32f2f; /* Darker color on hover */
+    border-color: #d32f2f; /* Darker border on hover */
+}
+
+main {
+    flex: 1; /* Allow main content to grow and fill space */
+    padding: 20px; /* Add padding to the main content */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack boxes vertically */
+}
+
+.anime-box {
+    border: 1px solid #444; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Inner padding */
+    margin: 10px 0; /* Margin for spacing */
+    background-color: #444; /* Box background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.anime-details {
+    display: flex; /* Align image and info side by side */
+    max-width: 100%; /* Corrected typo from 100po to 100% */
+}
+
+.anime-image {
+    max-width: 600px; /* Fixed width for the image */
+    border-radius: 8px; /* Rounded corners for image */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.info {
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+}
+
+footer {
+    margin-top: auto; /* Push footer to the bottom */
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Padding for footer */
+    background-color: #222; /* Footer background color */
+}
+
+footer p {
+    margin: 0; /* Remove margin for footer text */
+}
+.trailer {
+    text-decoration: none;
+    color: red;
+}

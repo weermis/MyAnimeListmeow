@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Stats</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <header>
+        <h1>Anime Stats</h1>
+        <a href="index.html" class="stats-button">Back to List</a>
+    </header>
+    <main>
+        <section class="stats-overview">
+            <h2>Your Overview</h2>
+            <p>You have watched <strong>41 anime series</strong> and a total of <strong>1693 episodes</strong>.</p>
+            <p>Total watch time: <strong>677 hours</strong> (40,632 minutes).</p>
+        </section>
+        
+        <section class="charts">
+            <div class="chart-container">
+                <h2>Watch Time Distribution</h2>
+                <canvas id="watchTimeChart" width="300" height="150"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Anime Genres Stats</h2>
+                <canvas id="genreChart" width="300" height="150"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Annual Watch Stats</h2>
+                <canvas id="annualStatsChart" width="300" height="150"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Episode Completion Progress</h2>
+                <canvas id="progressChart" width="300" height="150"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Top Ratings (Rotating Animation)</h2>
+                <canvas id="ratingChart" width="300" height="150"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Initialize charts
+        const ctx1 = document.getElementById('watchTimeChart').getContext('2d');
+        const ctx2 = document.getElementById('genreChart').getContext('2d');
+        const ctx3 = document.getElementById('annualStatsChart').getContext('2d');
+        const ctx4 = document.getElementById('progressChart').getContext('2d');
+        const ctx5 = document.getElementById('ratingChart').getContext('2d');
+
+        const watchTimeChart = new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Action', 'Drama', 'Comedy', 'Fantasy', 'Sports'],
+                datasets: [{
+                    label: 'Watch Time Distribution',
+                    data: [600, 400, 300, 200, 193],
+                    backgroundColor: ['#f44336', '#2196F3', '#FFC107', '#4CAF50', '#9C27B0'],
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true,
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Watch Time Distribution by Genre'
+                    }
+                }
+            }
+        });
+
+        const genreChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Action', 'Drama', 'Comedy', 'Fantasy', 'Sports'],
+                datasets: [{
+                    label: 'Anime Count',
+                    data: [15, 10, 8, 5, 3],
+                    backgroundColor: '#f44336',
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Number of Anime by Genre'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const annualStatsChart = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Hours Watched',
+                    data: [120, 180, 220, 250, 677],
+                    borderColor: '#2196F3',
+                    backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Annual Watch Stats'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const progressChart = new Chart(ctx4, {
+            type: 'radar',
+            data: {
+                labels: ['Completed', 'Watching', 'Dropped'],
+                datasets: [{
+                    label: 'Completion Status',
+                    data: [1693, 48, 6], // Total, watching, dropped episodes
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true,
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Episode Completion Progress'
+                    }
+                }
+            }
+        });
+
+        const ratingChart = new Chart(ctx5, {
+            type: 'polarArea',
+            data: {
+                labels: ['Chainsaw Man', 'Jujutsu Kaisen', 'Haikyu!!', 'Pokemon', 'Shingeki no Kyojin'],
+                datasets: [{
+                    label: 'Top Ratings',
+                    data: [10, 10, 9, 10, 10],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#F44336'],
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Top Anime Ratings'
+                    }
+                }
+            }
+        });
+
+        // Function to update charts with animation
+        function updateCharts() {
+            watchTimeChart.update();
+            genreChart.update();
+            annualStatsChart.update();
+            progressChart.update();
+            ratingChart.update();
+        }
+
+        // Set interval for updating charts every 5 seconds
+        setInterval(updateCharts, 5000);
+    </script>
+</body>
+</html>
