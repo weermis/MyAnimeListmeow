@@ -60,7 +60,7 @@ function displayAnime(animeArray) {
         // Change to redirect to the corresponding subpage
         card.onclick = () => {
             const titleFormatted = anime.title.toLowerCase().replace(/ /g, "_"); // Format the title for the URL
-            window.location.href = `subpages/${titleFormatted}.html`; // Redirect to the subpage
+            window.location.href = `${titleFormatted}.html`; // Redirect to the subpage
         };
 
         animeGrid.appendChild(card);
