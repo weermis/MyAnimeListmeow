@@ -1,5 +1,5 @@
 const animeList = [
-    { title: 'Chainsaw Man', image: 'img/csm.jpg', category: 'Action', video: 'chainsaw_man.mp4' },
+    { title: 'Chainsaw Man', image: '/img/csm.jpg', category: 'Action', video: 'chainsaw_man.mp4' },
     { title: 'Haikyu!! 2nd Season', image: 'img/haik.jpg', category: 'Sports', video: 'haikyu_2nd_season.mp4' },
     { title: 'Jujutsu Kaisen (TV)', image: 'img/jjk1.jpg', category: 'Action', video: 'jujutsu_kaisen.mp4' },
     { title: 'Jujutsu Kaisen (TV) 2nd Season', image: 'img/jjk2.jpg', category: 'Action', video: 'jujutsu_kaisen_2nd_season.mp4' },
@@ -67,24 +67,6 @@ function displayAnime(animeArray) {
     });
 }
 
-
-
-
-function openModal(videoSrc) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('animeVideo');
-    const source = document.getElementById('videoSource');
-    source.src = videoSrc;
-    video.load();
-    modal.style.display = 'block';
-}
-
-function closeModal() {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('animeVideo');
-    video.pause();
-    modal.style.display = 'none';
-}
 
 document.getElementById('searchInput').addEventListener('input', (e) => {
     const searchValue = e.target.value.toLowerCase();
